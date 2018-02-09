@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:local="clr-namespace:ChewsYes"
+    x:Class="ChewsYes.ChewsYesPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="HamburgerMenu" Icon="hamburger.png" Order="Primary" Priority="0" Clicked="HamburgerMenu_Clicked" />
+        <ToolbarItem Text="Hello" Order="Primary" Priority="0"/>
+        <ToolbarItem Name="" Order="Primary" Priority="0" />
+        <ToolbarItem x:Name="QrCode" Icon="qrcodechewsyes.png" Text="QrCode" Order="Primary" Priority="1" Clicked="QrCode_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout HorizontalOptions="Center">
+        <!--<StackLayout Orientation="Horizontal">
+            <Label Text="Hello" TextColor="White" BackgroundColor="Blue" HorizontalOptions="Start" FontSize="20"/>
+            <Image Source="qrcodechewsyes.png" Aspect="AspectFit" HorizontalOptions="End" HeightRequest="40" />
+        </StackLayout>-->
+        <Button x:Name="btnOrderNow" Text="Order Now" Clicked="btnOrderNow_Clicked" />
+        <Button x:Name="btnParking" Text="Parking" Clicked="btnParking_Clicked" />
+    </StackLayout>
+</ContentPage>

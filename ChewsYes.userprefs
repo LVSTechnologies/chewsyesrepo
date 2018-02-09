@@ -1,0 +1,73 @@
+﻿<Properties StartupConfiguration="{410EC8CC-8904-44C4-A9AF-5A03E425F7F8}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/AppDelegate.cs">
+    <Files>
+      <File FileName="ChewsYes/App.xaml.cs" Line="17" Column="52" />
+      <File FileName="ChewsYes/ChewsYesPage.xaml.cs" Line="21" Column="52" />
+      <File FileName="ChewsYes/ChewsYesPage.xaml" Line="25" Column="1" />
+      <File FileName="Droid/Properties/AndroidManifest.xml" Line="17" Column="12" />
+      <File FileName="Droid/MainActivity.cs" Line="7" Column="21" />
+      <File FileName="ChewsYes/App.xaml" Line="7" Column="1" />
+      <File FileName="ChewsYes/Views/MenuPage.xaml" Line="15" Column="1" />
+      <File FileName="ChewsYes/Views/MenuPage.xaml.cs" Line="3" Column="27" />
+      <File FileName="ChewsYes/ViewModels/MenuPageViewModel.cs" Line="5" Column="30" />
+      <File FileName="ChewsYes/Views/RootPage.xaml" Line="8" Column="20" />
+      <File FileName="ChewsYes/Views/RootPage.xaml.cs" Line="6" Column="25" />
+      <File FileName="ChewsYes/Views/SecondPage.xaml" Line="7" Column="1" />
+      <File FileName="ChewsYes/Views/SecondPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="ChewsYes/obj/Debug/ChewsYes.Views.RootPage.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="ChewsYes/Views/OrderNow.xaml" Line="156" Column="1" />
+      <File FileName="ChewsYes/Views/OrderNow.xaml.cs" Line="19" Column="18" />
+      <File FileName="ChewsYes/Views/ParkingPage.xaml" Line="27" Column="1" />
+      <File FileName="ChewsYes/Views/ParkingPage.xaml.cs" Line="45" Column="10" />
+      <File FileName="ChewsYes/Interfaces/IPrompt.cs" Line="6" Column="22" />
+      <File FileName="Droid/InputPrompt/Prompt.cs" Line="29" Column="43" />
+      <File FileName="iOS/InputPrompt/Prompt.cs" Line="3" Column="3" />
+      <File FileName="ChewsYes/Views/QRCodePage.xaml" Line="15" Column="1" />
+      <File FileName="ChewsYes/Views/QRCodePage.xaml.cs" Line="19" Column="17" />
+      <File FileName="ChewsYes/Views/Forgot.xaml" Line="33" Column="1" />
+      <File FileName="ChewsYes/Views/Forgot.xaml.cs" Line="1" Column="1" />
+      <File FileName="ChewsYes/Views/Login.xaml" Line="55" Column="1" />
+      <File FileName="ChewsYes/Views/Login.xaml.cs" Line="18" Column="47" />
+      <File FileName="packages/Xam.Plugin.Geolocator.4.2.0/readme.txt" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="ChewsYes/ViewModels/StoreViewModel.cs" Line="11" Column="9" />
+      <File FileName="ChewsYes/Models/Store.cs" Line="38" Column="54" />
+      <File FileName="ChewsYes/ViewModels/ViewModelBase.cs" Line="8" Column="66" />
+      <File FileName="ChewsYes/Models/Food.cs" Line="43" Column="10" />
+      <File FileName="ChewsYes/ViewModels/MainViewModel.cs" Line="9" Column="9" />
+      <File FileName="ChewsYes/Views/StorePage.xaml" Line="186" Column="1" />
+      <File FileName="ChewsYes/Views/StorePage.xaml.cs" Line="23" Column="73" />
+      <File FileName="ChewsYes/Views/OrderPage.xaml" Line="239" Column="1" />
+      <File FileName="ChewsYes/Views/OrderPage.xaml.cs" Line="16" Column="19" />
+      <File FileName="ChewsYes/obj/Debug/ChewsYes.Views.OrderPage.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="ChewsYes/ViewModels/OrderViewModel.cs" Line="62" Column="111" />
+      <File FileName="Droid/MainApplication.cs" Line="1" Column="1" />
+      <File FileName="ChewsYes/Converters/ImageResourceExtension.cs" Line="5" Column="30" />
+      <File FileName="iOS/AppDelegate.cs" Line="23" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ChewsYes" expanded="True" selected="True">
+            <Node name="ChewsYes" expanded="True">
+              <Node name="App.xaml" expanded="True" />
+            </Node>
+            <Node name="ChewsYes.iOS" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ChewsYes.iOS PreferredExecutionTarget="26938A4A-0A6F-4F5C-84D2-3D2FCB52BCC2" automaticSigning="False">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.ChewsYes.iOS>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ChewsYes.Droid PreferredExecutionTarget="cff10b5a-3d89-41df-953e-fb792f038b67" />
+</Properties>

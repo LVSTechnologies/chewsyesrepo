@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:vm="clr-namespace:ChewsYes.ViewModels"
+    x:Class="ChewsYes.Views.StorePage">
+	 <ContentPage.BindingContext>
+        <vm:StoreViewModel x:Name="myVM" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <ff:CachedImage Grid.Row="0"
+                            Source="{Binding StoreImageSource}"
+                            Aspect="AspectFill"
+                            LoadingPlaceholder="resource://ChewsYes.Images.imagecache_loading.gif"
+                            />
+            <ListView Grid.Row="1"
+                      x:Name="listView"
+                      ItemsSource="{Binding FoodsCollection}"
+                      RowHeight="150"
+                      SeparatorVisibility="None"
+                      BackgroundColor="White"
+                      ItemSelected="OnSelctedFood"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="64" />
+                                </Grid.ColumnDefinitions>
+                                <ff:CachedImage Grid.Column="0"
+                                                Grid.Row="0"
+                                                Grid.RowSpan="4"
+                                                Margin="10, 10, 10, 10"
+                                                Source="{Binding FoodImageSource}"
+                                                Aspect="AspectFill"
+                                                />
+                                <StackLayout Grid.Column="1"
+                                             Grid.Row="0"
+                                             Grid.RowSpan="4"
+                                             Orientation="Vertical"
+                                             >
+                                    <Label Text="{Binding Title}"
+                                           FontSize="Large"
+                                           TextColor="Black"
+                                           />
+                                    <Label Text="{Binding Description}"
+                                           FontSize="Small"
+                                           TextColor="Black"
+                                           />
+                                </StackLayout>
+                                <Label Grid.Column="2"
+                                       Grid.Row="0"
+                                       Text="{Binding PriceToString}"
+                                       FontSize="Large"
+                                       TextColor="Black"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       />
+                                <Label Grid.Column="2"
+                                       Grid.Row="1"
+                                       Text="+"
+                                       FontSize="30"
+                                       TextColor="Green"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       FontAttributes="Bold"
+                                       >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding PlusCommand}"
+                                                              CommandParameter="{x:Reference myVM}"
+                                                              />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label Grid.Column="2"
+                                       Grid.Row="2"
+                                       Text="{Binding Count}"
+                                       TextColor="Black"
+                                       FontSize="Large"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       />
+                                <Label Grid.Column="2"
+                                       Grid.Row="3"
+                                       Text="-"
+                                       TextColor="Red"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       >
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding MinusCommand}"
+                                                              CommandParameter="{x:Reference myVM}"
+                                                              />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <BoxView Grid.Column="0"
+                                         Grid.ColumnSpan="3"
+                                         Grid.Row="4"
+                                         BackgroundColor="LightGray"
+                                         />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="2"
+                  BackgroundColor="DarkOrange"
+                  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="64" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Text="{Binding Title}"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       VerticalTextAlignment="Center"
+                       TextColor="White"
+                       />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="{Binding Description}"
+                       FontSize="Small"
+                       TextColor="White"
+                       />
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="Total:"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       />
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding TotalPrice}"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="White"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       />
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="Black"
+                       FontSize="Medium"
+                       Text="{Binding TotalCount}"
+                       />
+                <ff:CachedImage Grid.Row="1"
+                                Grid.Column="2"
+                                Source="resource://ChewsYes.Images.shopping_cart512.png"
+                                Aspect="AspectFit"
+                                Margin="10, 10, 10, 10"
+                                />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

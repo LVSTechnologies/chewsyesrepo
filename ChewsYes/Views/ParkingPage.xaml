@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:ChewsYes.Views"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    x:Class="ChewsYes.Views.ParkingPage">
+	<ContentPage.Content>
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7.5*"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="7.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <maps:Map Grid.Column ="1" Grid.Row="0" 
+            x:Name="MyMap"
+            IsShowingUser="true"
+            MapType="Hybrid"
+        />
+        <Button Grid.Column="1" Grid.Row="1" BackgroundColor="Black" TextColor="White" Text="Save Your Parking Location" Clicked="Button_Clicked" ></Button>
+    </Grid>
+	</ContentPage.Content>
+</ContentPage>

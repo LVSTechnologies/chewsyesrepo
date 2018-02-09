@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:vm="clr-namespace:ChewsYes.ViewModels"
+             x:Class="ChewsYes.Views.OrderNow">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel x:Name="myVM" />
+    </ContentPage.BindingContext>
+    
+	<ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <maps:Map Grid.Row="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      x:Name="mapView"
+                      MapType="Hybrid"
+                      />
+            <WebView Grid.Row="0"
+                     IsVisible="False"
+                     Source="https://www.youtube.com/embed/qxpWdEPli8Q"
+                     x:Name="webView"
+                     />
+            <ListView Grid.Row="1"
+                      x:Name="listView"
+                      RowHeight="300"
+                      SeparatorVisibility="None"
+                      ItemsSource="{Binding Stores}"
+                      ItemSelected="OnSelectedItem"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0"
+                                      Margin="10, 5, 10, 0"
+                                      >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="100" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0"
+                                           Grid.Row="0"
+                                           Text="{Binding Title}"
+                                           FontSize="Large"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           />
+                                    <Label Grid.Column="0"
+                                           Grid.Row="1"
+                                           Text="{Binding Description}"
+                                           FontSize="Medium"
+                                           />
+                                    <ff:CachedImage Grid.Column="1"
+                                                    Grid.Row="0"
+                                                    Grid.RowSpan="2"
+                                                    Source="resource://ChewsYes.Images.logo.png"
+                                                    Aspect="AspectFit"
+                                                    />
+                                </Grid>
+                                <Grid Grid.Row="1"
+                                      Margin="10, 0, 10 , 5"
+                                      >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <ff:CachedImage Grid.Column="0"
+                                                    Grid.Row="0"
+                                                    Source="resource://ChewsYes.Images.Menu.png"
+                                                    Aspect="AspectFit"
+                                                    >
+                                        <ff:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickMenu" />
+                                        </ff:CachedImage.GestureRecognizers>
+                                    </ff:CachedImage>
+                                    <ff:CachedImage Grid.Column="1"
+                                                    Grid.Row="0"
+                                                    Source="resource://ChewsYes.Images.Vid.png"
+                                                    Aspect="AspectFit"
+                                                    >
+                                        <ff:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickVideo" />
+                                        </ff:CachedImage.GestureRecognizers>
+                                    </ff:CachedImage>
+                                    <ff:CachedImage Grid.Column="2"
+                                                    Grid.Row="0"
+                                                    Source="resource://ChewsYes.Images.Res.png"
+                                                    Aspect="AspectFit"
+                                                    >
+                                        <ff:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickResource" />
+                                        </ff:CachedImage.GestureRecognizers>
+                                    </ff:CachedImage>
+                                    <ff:CachedImage Grid.Column="0"
+                                                    Grid.Row="1"
+                                                    Source="resource://ChewsYes.Images.fav.png"
+                                                    Aspect="AspectFit"
+                                                    >
+                                        <ff:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickFavourite" />
+                                        </ff:CachedImage.GestureRecognizers>
+                                    </ff:CachedImage>
+                                    <ff:CachedImage Grid.Column="1"
+                                                    Grid.Row="1"
+                                                    Source="resource://ChewsYes.Images.Dir.png"
+                                                    Aspect="AspectFit"
+                                                    >
+                                        <ff:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickDirection" />
+                                        </ff:CachedImage.GestureRecognizers>
+                                    </ff:CachedImage>
+                                    <ff:CachedImage Grid.Column="2"
+                                                    Grid.Row="1"
+                                                    Source="resource://ChewsYes.Images.call.png"
+                                                    Aspect="AspectFit"
+                                                    >
+                                        <ff:CachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnClickCall" />
+                                        </ff:CachedImage.GestureRecognizers>
+                                    </ff:CachedImage>
+                                </Grid>
+                                <BoxView Grid.Row="2"
+                                         BackgroundColor="LightGray"
+                                         />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

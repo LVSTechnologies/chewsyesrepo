@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:vm="clr-namespace:ChewsYes.ViewModels" 
+    x:Class="ChewsYes.Views.OrderPage">
+	<ContentPage.BindingContext>
+        <vm:OrderViewModel x:Name="myVM" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"
+                         BackgroundColor="DarkOrange"
+                         >
+                <Label Text="PREVIEW YOUR ORDER"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="Large"
+                       TextColor="White"
+                       />
+            </StackLayout>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="64" />
+                </Grid.ColumnDefinitions>
+                <ff:CachedImage Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="4"
+                                Margin="10, 10, 10, 10"
+                                Source="{Binding FoodImageSource}"
+                                Aspect="AspectFill"
+                                />
+                <StackLayout Grid.Column="1"
+                             Grid.Row="0"
+                             Grid.RowSpan="4"
+                             Orientation="Vertical"
+                             >
+                    <Label Text="{Binding Title}"
+                           FontSize="Large"
+                           TextColor="Black"
+                           />
+                    <Label Text="{Binding Description}"
+                           FontSize="Small"
+                           TextColor="Black"
+                           />
+                </StackLayout>
+                <Label Grid.Column="2"
+                       Grid.Row="0"
+                       Text="{Binding PriceToString}"
+                       FontSize="Large"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       />
+                <Label Grid.Column="2"
+                       Grid.Row="1"
+                       Text="+"
+                       FontSize="30"
+                       TextColor="Green"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PlusCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Grid.Column="2"
+                       Grid.Row="2"
+                       Text="{Binding Count}"
+                       TextColor="Black"
+                       FontSize="Large"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       />
+                <Label Grid.Column="2"
+                       Grid.Row="3"
+                       Text="-"
+                       TextColor="Red"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding MinusCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <BoxView Grid.Column="0"
+                         Grid.ColumnSpan="3"
+                         Grid.Row="4"
+                         BackgroundColor="LightGray"
+                         />
+            </Grid>
+            <StackLayout Grid.Row="3"
+                         Orientation="Horizontal"
+                         Margin="10, 5, 10, 5"
+                         >
+                <Label Text="SubTotal :"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       HorizontalOptions="FillAndExpand"
+                       FontSize="Large"
+                       />
+                <Label Text="{Binding SubTotalToString}"
+                       WidthRequest="150"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="End"
+                       FontSize="Large"
+                       />
+            </StackLayout>
+            <StackLayout Grid.Row="4"
+                         Orientation="Horizontal"
+                         Margin="10, 5, 10, 5"
+                         >
+                <Label Text="Tax &amp; Fees :"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       HorizontalOptions="FillAndExpand"
+                       FontSize="Large"
+                       />
+                <Label Text="{Binding TaxAndFeesToString}"
+                       WidthRequest="150"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="End"
+                       FontSize="Large"
+                       />
+            </StackLayout>
+            <StackLayout Grid.Row="5"
+                         Orientation="Horizontal"
+                         Margin="10, 5, 10, 5"
+                         >
+                <Label Text="Total :"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="End"
+                       HorizontalOptions="FillAndExpand"
+                       FontSize="Large"
+                       />
+                <Label Text="{Binding TotalToString}"
+                       WidthRequest="150"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="End"
+                       FontSize="Large"
+                       />
+            </StackLayout>
+            <Label Grid.Row="6"
+                   Text="PAYMENT METHOD"
+                   VerticalTextAlignment="Center"
+                   FontSize="Large"
+                   Margin="10, 5, 10, 5"
+                   />
+            <StackLayout Grid.Row="7"
+                         Orientation="Horizontal"
+                         Margin="10, 5, 10, 5"
+                         >
+                <ff:CachedImage Source="{Binding InstaCashImageSource}"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                VerticalOptions="Center"
+                                />
+                <Label Text="Insta Cash Bal: $1429.51"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding InstaCashCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Grid.Row="8"
+                         Orientation="Horizontal"
+                         Margin="10, 5, 10, 5"
+                         >
+                <ff:CachedImage Source="{Binding CheckingAccountImageSource}"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                VerticalOptions="Center"
+                                />
+                <Label Text="Checking Account"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CheckingAccountCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Grid.Row="9"
+                         Orientation="Horizontal"
+                         Margin="10, 5, 10, 5"
+                         >
+                <ff:CachedImage Source="{Binding CreditCardImageSource}"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                VerticalOptions="Center"
+                                />
+                <Label Text="Add a Credit/Debit Card"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CreditCardCommand}" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Label Grid.Row="10"
+                   Margin="20, 20, 20, 20"
+                   BackgroundColor="LightBlue"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="Large"
+                   Text="PLACE ORDER"
+                   />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
